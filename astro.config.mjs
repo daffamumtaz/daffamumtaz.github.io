@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://daffamumtaz.github.io",
+  base: "/porto-daffamumtaz",
   vite: {
     plugins: [tailwindcss()],
   },

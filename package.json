@@ -1,0 +1,21 @@
+{
+  "name": "porto-daffamumtaz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@lucide/astro": "latest",
+    "@tailwindcss/vite": "latest",
+    "astro": "^7.1.6",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,690 @@
+---
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Award,
+  BrainCircuit,
+  BriefcaseBusiness,
+  CircleCheckBig,
+  CodeXml,
+  Contact,
+  Database,
+  Download,
+  ExternalLink,
+  GitFork,
+  GraduationCap,
+  Languages,
+  Mail,
+  MapPin,
+  Menu,
+  Phone,
+  Sparkles,
+  Users,
+  X,
+} from "@lucide/astro";
+import "../styles/global.css";
+
+const selectedProjects = [
+  {
+    name: "TitikTemu",
+    kicker: "Software Engineering · Frontend & UX",
+    year: "2026",
+    tone: "blue",
+    tags: "software ux",
+    descriptionEn:
+      "A deployed lost-and-found platform that gives IPB students one structured place to report, discover, and track missing items.",
+    descriptionId:
+      "Platform lost-and-found terpublikasi yang membantu mahasiswa IPB melaporkan, menemukan, dan melacak barang hilang secara terstruktur.",
+    metrics: ["4-person team", "16 views", "26 API endpoints", "7 tables"],
+    stack: ["React", "FastAPI", "PostgreSQL", "Figma"],
+    repo: "https://github.com/daffamumtaz/titik-temu-frontend",
+    demo: "https://titik-temu-frontend.vercel.app",
+  },
+  {
+    name: "PortalRancajaya",
+    kicker: "Full-Stack Web · Community Service",
+    year: "2026",
+    tone: "green",
+    tags: "software ux",
+    descriptionEn:
+      "A live village information portal and CMS built independently for Rancajaya, including a practical handover system for local administrators.",
+    descriptionId:
+      "Portal informasi desa dan CMS yang dikembangkan secara mandiri untuk Rancajaya, lengkap dengan sistem serah terima bagi administrator lokal.",
+    metrics: ["6,594 residents", "13 CMS collections", "9 pages", "11 handover docs"],
+    stack: ["Astro", "TypeScript", "Tailwind CSS", "Decap CMS"],
+    repo: "https://github.com/daffamumtaz/portal-rancajaya",
+    demo: "https://portalrancajaya.netlify.app/",
+  },
+  {
+    name: "Customer Segmentation MLOps",
+    kicker: "Machine Learning · MLOps",
+    year: "2025",
+    tone: "violet",
+    tags: "mlops data",
+    descriptionEn:
+      "An end-to-end customer segmentation workflow with experiment tracking, model serving, automated preprocessing, and live monitoring.",
+    descriptionId:
+      "Workflow segmentasi pelanggan end-to-end dengan experiment tracking, model serving, preprocessing otomatis, dan pemantauan langsung.",
+    metrics: ["200 records", "7 model runs", "0.5164 silhouette", "10 metric families"],
+    stack: ["Python", "Scikit-Learn", "MLflow", "Prometheus"],
+    repo: "https://github.com/daffamumtaz/customer-segmentation-mlops",
+  },
+  {
+    name: "Sigma-D",
+    kicker: "Applied AI · Predictive Maintenance",
+    year: "2025",
+    tone: "orange",
+    tags: "ai mlops software",
+    descriptionEn:
+      "A predictive-maintenance copilot that detects anomalies, classifies failure types, and supports AI-assisted maintenance recommendations.",
+    descriptionId:
+      "Copilot predictive maintenance untuk mendeteksi anomali, mengklasifikasikan tipe kerusakan, dan mendukung rekomendasi perawatan berbasis AI.",
+    metrics: ["5-person team", "10,000 rows", "32 API endpoints", "88.28 final score"],
+    stack: ["TensorFlow", "FastAPI", "React", "PostgreSQL"],
+    repo: "https://github.com/Sigma-D-Asah/machine-learning",
+    demo: "https://sigma-asah.netlify.app",
+  },
+  {
+    name: "MyToko",
+    kicker: "Full-Stack Web · Competition",
+    year: "2025",
+    tone: "pink",
+    tags: "software ux",
+    descriptionEn:
+      "An MSME e-commerce platform with storefront, checkout, order tracking, admin workflows, and secure Supabase data access.",
+    descriptionId:
+      "Platform e-commerce UMKM dengan storefront, checkout, pelacakan pesanan, alur admin, dan akses data Supabase yang aman.",
+    metrics: ["2nd Place", "3-person team", "18 routes", "8 API modules"],
+    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    repo: "https://github.com/daffamumtaz/mytoko-agritechjam",
+  },
+];
+
+const additionalProjects = [
+  {
+    name: "AQI Bangladesh Forecasting",
+    type: "Data Science · Time Series",
+    outcome: "R² 0.9986 · MAE 1.13 · 1,048,551 records",
+    stack: "LightGBM · Python · Docker",
+    href: "https://github.com/daffamumtaz/aqi-bangladesh-prediction",
+    tone: "blue",
+  },
+  {
+    name: "Produce Freshness Classifier",
+    type: "Computer Vision",
+    outcome: "98.70% accuracy · 4,391 test images",
+    stack: "MobileNetV2 · OpenCV · TensorFlow",
+    href: "https://github.com/daffamumtaz/produce-freshness-classifier",
+    tone: "green",
+  },
+  {
+    name: "PSO TSP West Java",
+    type: "Computational Intelligence",
+    outcome: "12.03% shorter route · 27 locations",
+    stack: "Python · Streamlit · Plotly",
+    href: "https://github.com/daffamumtaz/pso-tsp-westjava",
+    tone: "orange",
+  },
+  {
+    name: "CookHub",
+    type: "UX Research · Product Design",
+    outcome: "Research synthesis · Interactive prototype",
+    stack: "Figma · FigJam",
+    href: "https://www.figma.com/proto/BABFkz6K4Tm9QriVbPLbWi/Desain-CookHub",
+    tone: "pink",
+  },
+];
+
+const skillGroups = [
+  {
+    title: "Languages",
+    icon: CodeXml,
+    items: ["Python", "JavaScript", "TypeScript", "SQL", "Java", "C/C++", "Scala"],
+  },
+  {
+    title: "Software",
+    icon: BriefcaseBusiness,
+    items: ["React", "Astro", "FastAPI", "Next.js", "Tailwind CSS", "Vite"],
+  },
+  {
+    title: "Data & AI",
+    icon: BrainCircuit,
+    items: ["TensorFlow", "PyTorch", "Scikit-Learn", "Hugging Face", "MLflow"],
+  },
+  {
+    title: "Platforms & Design",
+    icon: Database,
+    items: ["PostgreSQL", "Supabase", "Docker", "GitHub Actions", "Figma", "Grafana"],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Portfolio of Daffa Naufal Mumtaz Heryadi, a Computer Science student focused on software development, data science, and applied AI/ML."
+    />
+    <meta name="theme-color" content="#f8f7ff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Daffa Naufal Mumtaz Heryadi · Portfolio</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Daffa, back to top">
+          <span class="brand-mark">DN</span>
+          <span class="brand-name">Daffa Naufal</span>
+        </a>
+
+        <div class="nav-links" data-nav-links>
+          <a href="#about" data-en="About" data-id="Tentang">About</a>
+          <a href="#projects" data-en="Projects" data-id="Proyek">Projects</a>
+          <a href="#experience" data-en="Experience" data-id="Pengalaman">Experience</a>
+          <a href="#skills" data-en="Skills" data-id="Keahlian">Skills</a>
+          <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="language-switcher" aria-label="Language">
+            <Languages size={17} aria-hidden="true" />
+            <button class="language-option is-active" type="button" data-language="en">EN</button>
+            <span aria-hidden="true">/</span>
+            <button class="language-option" type="button" data-language="id">ID</button>
+          </div>
+          <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-button>
+            <Menu class="menu-open-icon" size={22} />
+            <X class="menu-close-icon" size={22} />
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="home">
+        <div class="hero-color-grid" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <img
+          class="hero-portrait"
+          src="/portrait-daffa.jpg"
+          alt="Daffa Naufal Mumtaz Heryadi seated and smiling"
+          fetchpriority="high"
+        />
+        <div class="hero-content">
+          <div class="availability">
+            <span class="availability-dot"></span>
+            <span data-en="Open to internship opportunities" data-id="Terbuka untuk kesempatan internship"
+              >Open to internship opportunities</span
+            >
+          </div>
+          <p class="hero-kicker">Hello, I'm</p>
+          <h1>Daffa Naufal<br />Mumtaz Heryadi<span class="accent-dot">.</span></h1>
+          <p class="hero-role" aria-live="polite">
+            <span data-role-text>Software Developer</span>
+            <span class="role-cursor" aria-hidden="true"></span>
+          </p>
+          <p
+            class="hero-summary"
+            data-en="Computer Science student at IPB University building thoughtful software and applied AI systems that turn complex problems into practical, usable products."
+            data-id="Mahasiswa Ilmu Komputer IPB University yang membangun perangkat lunak dan sistem AI terapan untuk mengubah masalah kompleks menjadi produk yang praktis dan mudah digunakan."
+          >
+            Computer Science student at IPB University building thoughtful software and applied AI systems that turn
+            complex problems into practical, usable products.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">
+              <Sparkles size={18} />
+              <span data-en="Explore my work" data-id="Lihat karya saya">Explore my work</span>
+            </a>
+            <a class="button button-secondary" href="/Daffa-Naufal-Mumtaz-Heryadi-CV.pdf" target="_blank">
+              <Download size={18} />
+              <span data-en="Download CV" data-id="Unduh CV">Download CV</span>
+            </a>
+          </div>
+
+          <div class="hero-socials" aria-label="Profile links">
+            <a href="https://github.com/daffamumtaz" target="_blank" rel="noreferrer">
+              <GitFork size={20} />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/daffa-naufal-mumtaz-heryadi-862471285/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Contact size={20} />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://wa.me/6289663580475" target="_blank" rel="noreferrer">
+              <Phone size={20} />
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+          <ArrowDown size={20} />
+        </a>
+      </section>
+
+      <section class="impact-band" aria-label="Highlights">
+        <div class="impact-grid">
+          <div class="impact-item">
+            <strong>3.81<span>/4.00</span></strong>
+            <p data-en="Current GPA" data-id="IPK saat ini">Current GPA</p>
+          </div>
+          <div class="impact-item">
+            <strong>450<span> hrs</span></strong>
+            <p data-en="ASAH ML learning" data-id="Pembelajaran ML ASAH">ASAH ML learning</p>
+          </div>
+          <div class="impact-item">
+            <strong>80<span>+</span></strong>
+            <p data-en="Students supported" data-id="Mahasiswa didampingi">Students supported</p>
+          </div>
+          <div class="impact-item">
+            <strong>9<span> projects</span></strong>
+            <p data-en="Across software, data & AI" data-id="Software, data & AI">Across software, data & AI</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-about" id="about">
+        <div class="section-heading">
+          <p class="eyebrow" data-en="About me" data-id="Tentang saya">About me</p>
+          <h2 data-en="Software thinking, strengthened by data." data-id="Cara berpikir software, diperkuat oleh data.">
+            Software thinking, strengthened by data.
+          </h2>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-copy">
+            <p
+              class="lead"
+              data-en="I enjoy working where product logic, user needs, and intelligent systems meet."
+              data-id="Saya menikmati proses kerja di titik temu antara logika produk, kebutuhan pengguna, dan sistem cerdas."
+            >
+              I enjoy working where product logic, user needs, and intelligent systems meet.
+            </p>
+            <p
+              data-en="My projects range from community information platforms and e-commerce experiences to computer vision, forecasting, and production-oriented ML workflows. I care about making technology work beyond the notebook: through clear interfaces, reliable APIs, measurable evaluation, and useful documentation."
+              data-id="Proyek saya mencakup platform informasi komunitas, pengalaman e-commerce, computer vision, forecasting, dan workflow ML berorientasi produksi. Saya ingin teknologi tidak hanya bekerja di notebook, tetapi juga melalui antarmuka yang jelas, API yang andal, evaluasi terukur, dan dokumentasi yang berguna."
+            >
+              My projects range from community information platforms and e-commerce experiences to computer vision,
+              forecasting, and production-oriented ML workflows. I care about making technology work beyond the
+              notebook: through clear interfaces, reliable APIs, measurable evaluation, and useful documentation.
+            </p>
+            <div class="location-row">
+              <span><MapPin size={18} /> Bekasi, Indonesia</span>
+              <span><GraduationCap size={18} /> IPB University</span>
+            </div>
+          </div>
+
+          <div class="education-panel">
+            <div class="panel-icon"><GraduationCap size={24} /></div>
+            <div>
+              <p class="panel-label" data-en="Education" data-id="Pendidikan">Education</p>
+              <h3>Bachelor of Computer Science</h3>
+              <p>IPB University · 2023–2027</p>
+              <div class="panel-divider"></div>
+              <p class="panel-label" data-en="Focused training" data-id="Pelatihan utama">Focused training</p>
+              <h3>ASAH 2025 · Machine Learning Cohort</h3>
+              <p data-en="Led by Dicoding · 450 learning hours · Final score 88.28" data-id="Dipimpin oleh Dicoding · 450 jam belajar · Nilai akhir 88,28">
+                Led by Dicoding · 450 learning hours · Final score 88.28
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-projects" id="projects">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow" data-en="Selected projects" data-id="Proyek pilihan">Selected projects</p>
+            <h2 data-en="Built to work in the real world." data-id="Dibangun untuk digunakan di dunia nyata.">
+              Built to work in the real world.
+            </h2>
+          </div>
+          <a class="text-link" href="https://github.com/daffamumtaz?tab=repositories" target="_blank" rel="noreferrer">
+            <span data-en="All repositories" data-id="Semua repositori">All repositories</span>
+            <ArrowUpRight size={18} />
+          </a>
+        </div>
+
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <button class="filter-button is-active" type="button" data-filter="all" data-en="All" data-id="Semua">All</button>
+          <button class="filter-button" type="button" data-filter="software">Software</button>
+          <button class="filter-button" type="button" data-filter="data">Data / ML</button>
+          <button class="filter-button" type="button" data-filter="mlops">MLOps</button>
+          <button class="filter-button" type="button" data-filter="ux">UX</button>
+        </div>
+
+        <div class="project-grid">
+          {
+            selectedProjects.map((project, index) => (
+              <article class={`project-card tone-${project.tone}`} data-project data-tags={project.tags}>
+                <div class="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
+                <div class="project-meta">
+                  <span>{project.kicker}</span>
+                  <span>{project.year}</span>
+                </div>
+                <h3>{project.name}</h3>
+                <p
+                  class="project-description"
+                  data-en={project.descriptionEn}
+                  data-id={project.descriptionId}
+                >
+                  {project.descriptionEn}
+                </p>
+                <div class="metric-row">
+                  {project.metrics.map((metric) => <span>{metric}</span>)}
+                </div>
+                <div class="project-stack">
+                  {project.stack.map((item) => <span>{item}</span>)}
+                </div>
+                <div class="project-links">
+                  <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} source code`}>
+                    <GitFork size={19} />
+                    <span data-en="Source" data-id="Kode">Source</span>
+                  </a>
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`${project.name} live demo`}>
+                      <ExternalLink size={19} />
+                      <span>Live</span>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="additional-heading">
+          <div>
+            <p class="eyebrow" data-en="Additional projects" data-id="Proyek tambahan">Additional projects</p>
+            <h3 data-en="More experiments, measurable outcomes." data-id="Eksperimen lainnya dengan hasil yang terukur.">
+              More experiments, measurable outcomes.
+            </h3>
+          </div>
+        </div>
+
+        <div class="additional-list">
+          {
+            additionalProjects.map((project) => (
+              <a class={`additional-project tone-${project.tone}`} href={project.href} target="_blank" rel="noreferrer">
+                <span class="additional-accent" aria-hidden="true"></span>
+                <div class="additional-main">
+                  <p>{project.type}</p>
+                  <h4>{project.name}</h4>
+                </div>
+                <div class="additional-result">
+                  <strong>{project.outcome}</strong>
+                  <span>{project.stack}</span>
+                </div>
+                <ArrowUpRight size={20} />
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="section section-experience" id="experience">
+        <div class="section-heading">
+          <p class="eyebrow" data-en="Experience & involvement" data-id="Pengalaman & organisasi">
+            Experience & involvement
+          </p>
+          <h2 data-en="Learning by contributing." data-id="Belajar dengan berkontribusi.">Learning by contributing.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"><BriefcaseBusiness size={19} /></div>
+            <div class="timeline-period">Aug 2025 – Jun 2026</div>
+            <div class="timeline-content">
+              <p class="timeline-type" data-en="Teaching experience" data-id="Pengalaman mengajar">
+                Teaching experience
+              </p>
+              <h3>Teaching Assistant</h3>
+              <p class="timeline-org">Department of Computer Science · IPB University</p>
+              <p
+                data-en="Supported 80+ students across Introduction to Computational Mathematics and User Experience Design, facilitated 28 practicum sessions, and reviewed 20+ assignments, projects, and quizzes."
+                data-id="Mendampingi 80+ mahasiswa pada mata kuliah Introduction to Computational Mathematics dan User Experience Design, memfasilitasi 28 sesi praktikum, serta meninjau 20+ tugas, proyek, dan kuis."
+              >
+                Supported 80+ students across Introduction to Computational Mathematics and User Experience Design,
+                facilitated 28 practicum sessions, and reviewed 20+ assignments, projects, and quizzes.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker"><Users size={19} /></div>
+            <div class="timeline-period">Jan – Dec 2025</div>
+            <div class="timeline-content">
+              <p class="timeline-type" data-en="Organization" data-id="Organisasi">Organization</p>
+              <h3>Staff of Research and Technology</h3>
+              <p class="timeline-org">Himalkom IPB</p>
+              <p
+                data-en="Coordinated a student-interest survey with 100+ responses and contributed to analysis and data visualizations for studies involving 120–160 respondents."
+                data-id="Mengoordinasikan survei minat mahasiswa dengan 100+ respons dan berkontribusi pada analisis serta visualisasi data untuk studi dengan 120–160 responden."
+              >
+                Coordinated a student-interest survey with 100+ responses and contributed to analysis and data
+                visualizations for studies involving 120–160 respondents.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker"><Users size={19} /></div>
+            <div class="timeline-period">Jan 2024 – Dec 2025</div>
+            <div class="timeline-content">
+              <p class="timeline-type" data-en="Organization" data-id="Organisasi">Organization</p>
+              <h3>Administration 2024 · Treasurer 2025</h3>
+              <p class="timeline-org">IEEE Student Branch IPB</p>
+              <p
+                data-en="Managed documentation for 24+ programs, maintained records for 61+ members, and tracked up to IDR 7 million in organizational funds."
+                data-id="Mengelola dokumentasi 24+ program, memelihara data 61+ anggota, dan mencatat dana organisasi hingga Rp7 juta."
+              >
+                Managed documentation for 24+ programs, maintained records for 61+ members, and tracked up to IDR 7
+                million in organizational funds.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="recognition-band">
+          <div class="recognition-icon"><Award size={28} /></div>
+          <div>
+            <p class="eyebrow" data-en="Recognition & certification" data-id="Pencapaian & sertifikasi">
+              Recognition & certification
+            </p>
+            <h3>2nd Place · AgriTechJam Agriinformatics 2025</h3>
+            <p data-en="Frontend Developer for MyToko in a 3-person campus-level team." data-id="Frontend Developer MyToko dalam tim tingkat kampus beranggotakan 3 orang.">
+              Frontend Developer for MyToko in a 3-person campus-level team.
+            </p>
+          </div>
+          <a href="https://bit.ly/daffamumtaz-cert-bnspads" target="_blank" rel="noreferrer">
+            <CircleCheckBig size={21} />
+            <span>Associate Data Scientist · BNSP</span>
+            <ArrowUpRight size={18} />
+          </a>
+        </div>
+      </section>
+
+      <section class="section section-skills" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow" data-en="Skills" data-id="Keahlian">Skills</p>
+          <h2 data-en="A toolkit for product and intelligence." data-id="Perangkat untuk produk dan sistem cerdas.">
+            A toolkit for product and intelligence.
+          </h2>
+        </div>
+
+        <div class="skills-grid">
+          {
+            skillGroups.map(({ title, icon: Icon, items }) => (
+              <article class="skill-group">
+                <div class="skill-title">
+                  <Icon size={21} />
+                  <h3>{title}</h3>
+                </div>
+                <div class="skill-list">
+                  {items.map((item) => <span>{item}</span>)}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="capability-row">
+          <span>UX Research</span>
+          <span>Product Design</span>
+          <span>Problem Solving</span>
+          <span>Technical Communication</span>
+          <span>Analytical Thinking</span>
+          <span>Collaboration</span>
+        </div>
+
+        <div class="spoken-languages">
+          <p class="panel-label" data-en="Spoken languages" data-id="Bahasa">Spoken languages</p>
+          <span>Indonesian <strong>Native</strong></span>
+          <span>English <strong>Professional</strong></span>
+          <span>Japanese <strong>Basic</strong></span>
+          <span>Arabic <strong>Basic</strong></span>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-stripe" aria-hidden="true"></div>
+        <div class="contact-content">
+          <p class="eyebrow" data-en="Let's connect" data-id="Mari terhubung">Let's connect</p>
+          <h2
+            data-en="Have an internship, project, or good problem to solve?"
+            data-id="Punya kesempatan internship, proyek, atau masalah menarik untuk diselesaikan?"
+          >
+            Have an internship, project, or good problem to solve?
+          </h2>
+          <p
+            data-en="I am especially interested in software development, data science, and AI engineering opportunities in tech and fintech."
+            data-id="Saya sangat tertarik pada kesempatan software development, data science, dan AI engineering di industri teknologi maupun fintech."
+          >
+            I am especially interested in software development, data science, and AI engineering opportunities in
+            tech and fintech.
+          </p>
+          <div class="contact-actions">
+            <a class="button button-light" href="mailto:naufalmumtazdaffa037@gmail.com">
+              <Mail size={19} />
+              <span data-en="Email me" data-id="Kirim email">Email me</span>
+            </a>
+            <a class="button button-outline-light" href="https://wa.me/6289663580475" target="_blank" rel="noreferrer">
+              <Phone size={19} />
+              <span>WhatsApp</span>
+            </a>
+          </div>
+          <a class="contact-email" href="mailto:naufalmumtazdaffa037@gmail.com">naufalmumtazdaffa037@gmail.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <span class="brand-mark">DN</span>
+        <p>© 2026 Daffa Naufal Mumtaz Heryadi</p>
+      </div>
+      <p data-en="Designed and built with Astro." data-id="Didesain dan dibangun dengan Astro.">
+        Designed and built with Astro.
+      </p>
+    </footer>
+
+    <script>
+      const languageButtons = document.querySelectorAll("[data-language]");
+      const translatableElements = document.querySelectorAll("[data-en][data-id]");
+      const roleText = document.querySelector("[data-role-text]");
+      type PortfolioLanguage = "en" | "id";
+      const roleSets: Record<PortfolioLanguage, string[]> = {
+        en: ["Software Developer", "Data Scientist", "AI/ML Engineer", "Product-minded Builder"],
+        id: ["Software Developer", "Data Scientist", "AI/ML Engineer", "Pembuat Produk Digital"],
+      };
+
+      let currentLanguage: PortfolioLanguage = localStorage.getItem("portfolio-language") === "id" ? "id" : "en";
+      let roleIndex = 0;
+
+      function applyLanguage(language: PortfolioLanguage) {
+        currentLanguage = language;
+        document.documentElement.lang = language;
+        localStorage.setItem("portfolio-language", language);
+        translatableElements.forEach((element) => {
+          element.textContent = element.getAttribute(`data-${language}`) ?? "";
+        });
+        languageButtons.forEach((button) => {
+          button.classList.toggle("is-active", button.getAttribute("data-language") === language);
+        });
+        roleIndex = 0;
+        if (roleText) roleText.textContent = roleSets[language][roleIndex];
+      }
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () =>
+          applyLanguage(button.getAttribute("data-language") === "id" ? "id" : "en"),
+        );
+      });
+      applyLanguage(currentLanguage);
+
+      window.setInterval(() => {
+        roleIndex = (roleIndex + 1) % roleSets[currentLanguage].length;
+        if (!roleText) return;
+        roleText.classList.add("is-changing");
+        window.setTimeout(() => {
+          roleText.textContent = roleSets[currentLanguage][roleIndex];
+          roleText.classList.remove("is-changing");
+        }, 180);
+      }, 3000);
+
+      const filterButtons = document.querySelectorAll("[data-filter]");
+      const projectCards = document.querySelectorAll("[data-project]");
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.getAttribute("data-filter") ?? "all";
+          filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+          projectCards.forEach((card) => {
+            const tags = card.getAttribute("data-tags")?.split(" ") ?? [];
+            const visible = filter === "all" || tags.includes(filter);
+            card.toggleAttribute("hidden", !visible);
+          });
+        });
+      });
+
+      const menuButton = document.querySelector("[data-menu-button]");
+      const navLinks = document.querySelector("[data-nav-links]");
+      menuButton?.addEventListener("click", () => {
+        const open = menuButton.getAttribute("aria-expanded") !== "true";
+        menuButton.setAttribute("aria-expanded", String(open));
+        navLinks?.classList.toggle("is-open", open);
+      });
+      navLinks?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuButton?.setAttribute("aria-expanded", "false");
+          navLinks.classList.remove("is-open");
+        });
+      });
+
+      const progress = document.querySelector(".scroll-progress");
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const amount = scrollable > 0 ? window.scrollY / scrollable : 0;
+        if (progress instanceof HTMLElement) progress.style.transform = `scaleX(${amount})`;
+      };
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      updateProgress();
+    </script>
+  </body>
+</html>

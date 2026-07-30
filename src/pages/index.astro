@@ -48,8 +48,8 @@ const projects = [
     sortDate: 202601,
     contextEn: "Coursework",
     contextId: "Tugas Kuliah",
-    contextDetailEn: "System Analysis and Design",
-    contextDetailId: "Analisis dan Perancangan Sistem",
+    contextDetailEn: "System Analysis and Design (KOM1337)",
+    contextDetailId: "Analisis dan Perancangan Sistem (KOM1337)",
     contextKey: "coursework",
     roleEn: "Front-End and UX Designer",
     roleId: "Front-End dan UX Designer",
@@ -181,8 +181,8 @@ const projects = [
     sortDate: 202601,
     contextEn: "Coursework",
     contextId: "Tugas Kuliah",
-    contextDetailEn: "Data Mining",
-    contextDetailId: "Data Mining",
+    contextDetailEn: "Data Mining (KOM1338)",
+    contextDetailId: "Data Mining (KOM1338)",
     contextKey: "coursework",
     roleEn: "Machine Learning Developer",
     roleId: "Machine Learning Developer",
@@ -236,8 +236,8 @@ const projects = [
     contextDetailEn: "Computational Intelligence (KOM1326)",
     contextDetailId: "Kecerdasan Komputasional (KOM1326)",
     contextKey: "coursework",
-    roleEn: "Team Member",
-    roleId: "Anggota Tim",
+    roleEn: "System Developer",
+    roleId: "System Developer",
     categoryEn: "Route optimization",
     categoryId: "Optimasi rute",
     tags: ["data", "coursework"],
@@ -245,7 +245,7 @@ const projects = [
       "A Discrete PSO route optimizer and interactive Streamlit dashboard for comparing TSP routes across West Java regencies and cities.",
     descriptionId:
       "Optimizer rute Discrete PSO dan dashboard Streamlit interaktif untuk membandingkan rute TSP pada kabupaten dan kota di Jawa Barat.",
-    metrics: ["27 locations", "12.03% shorter", "107.33 km saved", "4 presets"],
+    metrics: ["5-person team", "27 locations", "12.03% shorter", "107.33 km saved"],
     stack: ["Python", "Streamlit", "Plotly", "Discrete PSO"],
     visual: "visual-yellow",
     icon: ChartLine,
@@ -259,8 +259,8 @@ const projects = [
     sortDate: 202505,
     contextEn: "Coursework",
     contextId: "Tugas Kuliah",
-    contextDetailEn: "User Experience Design",
-    contextDetailId: "User Experience Design",
+    contextDetailEn: "User Experience Design (KOM1232)",
+    contextDetailId: "User Experience Design (KOM1232)",
     contextKey: "coursework",
     roleEn: "UX Researcher and UI/UX Designer",
     roleId: "UX Researcher dan UI/UX Designer",
@@ -288,7 +288,6 @@ const fieldFilters = [
   { key: "data", labelEn: "Data / ML", labelId: "Data / ML" },
   { key: "mlops", labelEn: "MLOps", labelId: "MLOps" },
   { key: "ux", labelEn: "UX", labelId: "UX" },
-  { key: "fullstack", labelEn: "Full-Stack", labelId: "Full-Stack" },
 ];
 
 const contextFilters = [
@@ -304,14 +303,13 @@ const tagLabels: Record<string, string> = {
   data: "Data / ML",
   mlops: "MLOps",
   ux: "UX",
-  fullstack: "Full-stack",
 };
 
 const skillGroups = [
   {
     title: "Languages",
     icon: CodeXml,
-    items: ["Python", "JavaScript", "TypeScript", "SQL", "Java", "C/C++", "Scala"],
+    items: ["Python", "JavaScript", "TypeScript", "SQL"],
   },
   {
     title: "Software Systems",
@@ -324,13 +322,18 @@ const skillGroups = [
     items: ["TensorFlow", "PyTorch", "Scikit-Learn", "LightGBM", "Hugging Face", "MLflow"],
   },
   {
-    title: "Platforms and Product",
+    title: "Platforms and DevOps",
     icon: Database,
-    items: ["PostgreSQL", "Supabase", "Docker", "GitHub Actions", "Prometheus", "Grafana", "Figma"],
+    items: ["PostgreSQL", "Supabase", "Docker", "GitHub Actions", "Prometheus", "Grafana"],
+  },
+  {
+    title: "Product and UX",
+    icon: Lightbulb,
+    items: ["Figma", "FigJam", "UX Research", "Product Design", "Prototyping", "Journey Mapping"],
   },
 ];
 
-const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technical Communication", "Analytical Thinking", "Collaboration"];
+const softSkills = ["Problem Solving", "Technical Communication", "Analytical Thinking", "Collaboration", "Adaptability", "Ownership"];
 ---
 
 <!doctype html>
@@ -392,7 +395,6 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
 
     <main id="main-content">
       <section class="hero" id="home">
-        <div class="hero-copy-shade" aria-hidden="true"></div>
         <img
           class="hero-portrait"
           src="/pasfoto-fullbody.png"
@@ -405,8 +407,8 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
         <div class="hero-content">
           <div class="availability">
             <span class="availability-dot"></span>
-            <span data-en="Open to general tech internships" data-id="Terbuka untuk internship general tech"
-              >Open to general tech internships</span
+            <span data-en="Computer Science Undergraduate" data-id="Mahasiswa Ilmu Komputer"
+              >Computer Science Undergraduate</span
             >
           </div>
           <p class="hero-greeting" data-en="Hi, I'm" data-id="Halo, saya">Hi, I'm</p>
@@ -464,7 +466,7 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
         <div class="learning-grid">
           <article class="learning-card learning-card-featured"><div class="learning-icon"><GraduationCap size={24} /></div><p class="learning-kicker" data-en="2023 - 2027 expected" data-id="2023 - target 2027">2023 - 2027 expected</p><h3 data-en="Bachelor of Computer Science" data-id="Sarjana Ilmu Komputer">Bachelor of Computer Science</h3><p data-en="IPB University. Building core depth through data structures, databases, software engineering, AI, data mining, and UX." data-id="IPB University. Memperkuat fondasi melalui struktur data, basis data, rekayasa perangkat lunak, AI, data mining, dan UX.">IPB University. Building core depth through data structures, databases, software engineering, AI, data mining, and UX.</p><strong class="learning-metric">3.81 <span>/4.00 GPA</span></strong></article>
           <article class="learning-card"><div class="learning-icon"><BrainCircuit size={24} /></div><p class="learning-kicker">2025</p><h3>ASAH 2025 Machine Learning Cohort</h3><p data-en="Dicoding Indonesia cohort focused on practical machine learning, an end-to-end capstone, and evidence-based iteration." data-id="Cohort Dicoding Indonesia yang berfokus pada machine learning praktis, capstone end-to-end, dan iterasi berbasis bukti.">Dicoding Indonesia cohort focused on practical machine learning, an end-to-end capstone, and evidence-based iteration.</p><strong class="learning-metric">450 <span data-en="learning hours · score 88.28" data-id="jam belajar · nilai 88.28">learning hours · score 88.28</span></strong></article>
-          <article class="learning-card"><div class="learning-icon"><School size={24} /></div><p class="learning-kicker">2023</p><h3 data-en="Academic foundation" data-id="Fondasi akademik">Academic foundation</h3><p data-en="Graduated from Trenmatika Islamic Boarding High School, Bekasi, with a consistent record of academic commitment." data-id="Lulus dari SMA Pesantren Trenmatika, Bekasi, dengan rekam jejak komitmen akademik yang konsisten.">Graduated from Trenmatika Islamic Boarding High School, Bekasi, with a consistent record of academic commitment.</p><strong class="learning-metric" data-en="Best Graduate" data-id="Lulusan Terbaik">Best Graduate</strong></article>
+          <article class="learning-card"><div class="learning-icon"><School size={24} /></div><p class="learning-kicker">2020 - 2023</p><h3 data-en="Academic foundation" data-id="Fondasi akademik">Academic foundation</h3><p data-en="Studied at Trenmatika Islamic Boarding High School, Bekasi, with a consistent record of academic commitment." data-id="Belajar di SMA Pesantren Trenmatika, Bekasi, dengan rekam jejak komitmen akademik yang konsisten.">Studied at Trenmatika Islamic Boarding High School, Bekasi, with a consistent record of academic commitment.</p><strong class="learning-metric" data-en="Best Graduate" data-id="Lulusan Terbaik">Best Graduate</strong></article>
         </div>
       </section>
 
@@ -514,17 +516,17 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
         <div class="project-toolbar" aria-label="Project archive controls">
           <div class="filter-cluster"><span class="control-label"><ListFilter size={15} /><span data-en="Field" data-id="Bidang">Field</span></span><div class="filter-row" role="group" aria-label="Filter projects by field">{fieldFilters.map((filter) => <button class="filter-button" class:list={{ "is-active": filter.key === "all" }} type="button" data-filter-group="field" data-filter-key={filter.key} aria-pressed={filter.key === "all"} data-en={filter.labelEn} data-id={filter.labelId}>{filter.labelEn}</button>)}</div></div>
           <div class="filter-cluster"><span class="control-label"><ListFilter size={15} /><span data-en="Context" data-id="Konteks">Context</span></span><div class="filter-row" role="group" aria-label="Filter projects by context">{contextFilters.map((filter) => <button class="filter-button" class:list={{ "is-active": filter.key === "all" }} type="button" data-filter-group="context" data-filter-key={filter.key} aria-pressed={filter.key === "all"} data-en={filter.labelEn} data-id={filter.labelId}>{filter.labelEn}</button>)}</div></div>
-          <div class="archive-controls"><label class="sort-control"><ArrowDownUp size={16} /><span class="sr-only" data-en="Sort projects" data-id="Urutkan proyek">Sort projects</span><select data-project-sort aria-label="Sort projects"><option value="newest" data-en="Newest" data-id="Terbaru">Newest</option><option value="oldest" data-en="Oldest" data-id="Terlama">Oldest</option><option value="az" data-en="A - Z" data-id="A - Z">A - Z</option></select></label><div class="view-switcher" aria-label="Project view"><button class="view-button is-active" type="button" data-project-view="cards" aria-pressed="true" aria-label="Card view"><LayoutGrid size={17} /></button><button class="view-button" type="button" data-project-view="list" aria-pressed="false" aria-label="List view"><LayoutList size={17} /></button></div></div>
+          <div class="archive-controls"><label class="sort-control"><ArrowDownUp size={16} /><span class="sr-only" data-en="Sort projects" data-id="Urutkan proyek">Sort projects</span><select data-project-sort aria-label="Sort projects"><option value="newest" data-en="Newest" data-id="Terbaru">Newest</option><option value="oldest" data-en="Oldest" data-id="Terlama">Oldest</option><option value="az" data-en="A - Z" data-id="A - Z">A - Z</option></select></label><div class="view-switcher" aria-label="Project view"><button class="view-button is-active" type="button" data-project-view="cards" aria-pressed="true" aria-label="Card view" title="Card view"><LayoutGrid size={17} /></button><button class="view-button" type="button" data-project-view="list" aria-pressed="false" aria-label="List view" title="List view"><LayoutList size={17} /></button></div></div>
         </div>
 
         <p class="project-count" data-project-count aria-live="polite"></p>
         <div class="project-archive" data-project-archive>
           <div class="project-grid" data-project-grid>
-            {projects.map((project, index) => {
+            {projects.map((project) => {
               const ProjectIcon = project.icon;
               return (
                 <article class="project-card" data-project data-domain={project.tags.join(" ")} data-context={project.contextKey} data-sort={project.sortDate} data-name={project.name.toLowerCase()}>
-                  <div class={`project-visual ${project.visual}`} aria-hidden="true"><ProjectIcon size={30} /><span>{String(index + 1).padStart(2, "0")}</span></div>
+                  <div class={`project-visual ${project.visual}`} aria-hidden="true"><ProjectIcon size={30} /></div>
                   <div class="project-body">
                     <div class="project-topline"><span class="project-context" data-en={project.contextEn} data-id={project.contextId}>{project.contextEn}</span><span class="project-period">{project.period}</span></div>
                     <h3>{project.name}</h3>
@@ -556,11 +558,11 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
         <div class="timeline">
           <article class="timeline-item">
             <div class="timeline-marker"><BriefcaseBusiness size={19} /></div>
-            <div class="timeline-period">Aug 2025 - Jun 2026</div>
+            <div class="timeline-period"><span>Aug 2025</span><span>Jun 2026</span></div>
             <div class="timeline-content">
               <p class="timeline-type" data-en="Teaching experience" data-id="Pengalaman mengajar">Teaching experience</p>
               <h3>Teaching Assistant</h3>
-              <p class="timeline-org">Department of Computer Science - IPB University</p>
+              <p class="timeline-org" data-period="Aug 2025 - Jun 2026">Department of Computer Science - IPB University</p>
               <p
                 data-en="Assisted 80+ undergraduate students across Introduction to Computational Mathematics and User Experience Design, supported 28 practicum sessions, and reviewed 20+ assignments, quizzes, and projects."
                 data-id="Mendampingi 80+ mahasiswa pada Introduction to Computational Mathematics dan User Experience Design, mendukung 28 sesi praktikum, serta meninjau 20+ tugas, kuis, dan proyek."
@@ -573,11 +575,11 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
 
           <article class="timeline-item">
             <div class="timeline-marker"><Users size={19} /></div>
-            <div class="timeline-period">Jan - Dec 2025</div>
+            <div class="timeline-period"><span>Jan-Dec</span><span>2025</span></div>
             <div class="timeline-content">
               <p class="timeline-type" data-en="Organization" data-id="Organisasi">Organization</p>
               <h3>Staff of Research and Technology</h3>
-              <p class="timeline-org">Himalkom IPB</p>
+              <p class="timeline-org" data-period="Jan - Dec 2025">Himalkom IPB</p>
               <p
                 data-en="Coordinated a student-interest survey with 100+ responses and contributed to analysis and visual summaries for studies involving 120-160 respondents."
                 data-id="Mengoordinasikan survei minat mahasiswa dengan 100+ respons serta berkontribusi pada analisis dan ringkasan visual untuk studi dengan 120-160 responden."
@@ -590,11 +592,11 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
 
           <article class="timeline-item">
             <div class="timeline-marker"><Users size={19} /></div>
-            <div class="timeline-period">Jan 2024 - Dec 2025</div>
+            <div class="timeline-period"><span>Jan 2024</span><span>Dec 2025</span></div>
             <div class="timeline-content">
               <p class="timeline-type" data-en="Organization" data-id="Organisasi">Organization</p>
               <h3>Administration 2024 - Treasurer 2025</h3>
-              <p class="timeline-org">IEEE Student Branch IPB</p>
+              <p class="timeline-org" data-period="Jan 2024 - Dec 2025">IEEE Student Branch IPB</p>
               <p
                 data-en="Managed documentation for 24+ programs, maintained records for 61+ members, and tracked up to IDR 7 million in organizational funds."
                 data-id="Mengelola dokumentasi 24+ program, memelihara data 61+ anggota, dan mencatat dana organisasi hingga IDR 7 juta."
@@ -613,7 +615,7 @@ const softSkills = ["Problem Solving", "UX Research", "Product Design", "Technic
         <div class="recognition-grid">
           <article class="recognition-card"><div class="recognition-icon recognition-award"><Trophy size={23} /></div><p class="recognition-type" data-en="Competition" data-id="Kompetisi">Competition</p><h3>2nd Place, AgriTechJam - Agriinformatics 2025</h3><p data-en="Recognised with a 3-person team for MyToko, a SaaS-style e-commerce prototype for MSMEs." data-id="Diakui bersama tim beranggotakan 3 orang melalui MyToko, prototype e-commerce bergaya SaaS untuk UMKM.">Recognised with a 3-person team for MyToko, a SaaS-style e-commerce prototype for MSMEs.</p></article>
           <article class="recognition-card"><div class="recognition-icon recognition-cert"><BadgeCheck size={23} /></div><p class="recognition-type" data-en="Professional certification" data-id="Sertifikasi profesional">Professional certification</p><h3>Associate Data Scientist - BNSP</h3><p data-en="Credential issued through LSP TIK Global, covering the core competencies expected of an Associate Data Scientist." data-id="Kredensial yang diterbitkan melalui LSP TIK Global, mencakup kompetensi inti Associate Data Scientist.">Credential issued through LSP TIK Global, covering the core competencies expected of an Associate Data Scientist.</p><a class="card-link" href="https://bit.ly/daffamumtaz-cert-bnspads" target="_blank" rel="noreferrer"><span data-en="View credential" data-id="Lihat kredensial">View credential</span><ArrowUpRight size={16} /></a></article>
-          <article class="recognition-card"><div class="recognition-icon recognition-school"><Award size={23} /></div><p class="recognition-type" data-en="Academic foundation" data-id="Fondasi akademik">Academic foundation</p><h3>Best Graduate, Trenmatika Islamic Boarding High School</h3><p data-en="Graduated in Bekasi in 2023, closing high school with a distinction that still anchors my approach to learning." data-id="Lulus di Bekasi pada 2023, menutup masa SMA dengan pencapaian yang masih membentuk cara saya belajar.">Graduated in Bekasi in 2023, closing high school with a distinction that still anchors my approach to learning.</p></article>
+          <article class="recognition-card"><div class="recognition-icon recognition-school"><Award size={23} /></div><p class="recognition-type" data-en="Academic foundation" data-id="Fondasi akademik">Academic foundation</p><h3>Best Graduate, Trenmatika Islamic Boarding High School</h3><p data-en="Completed the 2020-2023 high school track in Bekasi with a distinction that still anchors my approach to learning." data-id="Menyelesaikan masa SMA 2020-2023 di Bekasi dengan pencapaian yang masih membentuk cara saya belajar.">Completed the 2020-2023 high school track in Bekasi with a distinction that still anchors my approach to learning.</p></article>
         </div>
       </section>
 

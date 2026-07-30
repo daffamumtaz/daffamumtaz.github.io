@@ -11,128 +11,220 @@ import {
   Database,
   Download,
   ExternalLink,
+  FileText,
   GitFork,
   GraduationCap,
   Languages,
   Mail,
   MapPin,
   Menu,
+  Moon,
   Phone,
   Sparkles,
+  Sun,
   Users,
   X,
 } from "@lucide/astro";
 import "../styles/global.css";
 
-const selectedProjects = [
+const projects = [
   {
     name: "TitikTemu",
-    kicker: "Software Engineering · Frontend & UX",
-    year: "2026",
-    tone: "blue",
-    tags: "software ux",
+    period: "Jan - Jun 2026",
+    contextEn: "Coursework",
+    contextId: "Tugas Kuliah",
+    roleEn: "Front-End and UX Designer",
+    roleId: "Front-End dan UX Designer",
+    categoryEn: "Lost-and-found operations",
+    categoryId: "Operasi lost-and-found",
+    tags: ["software", "fullstack", "ux", "coursework"],
     descriptionEn:
-      "A deployed lost-and-found platform that gives IPB students one structured place to report, discover, and track missing items.",
+      "A structured lost-and-found platform for IPB students, covering item reporting, moderation, claim processing, notifications, and security handover workflows.",
     descriptionId:
-      "Platform lost-and-found terpublikasi yang membantu mahasiswa IPB melaporkan, menemukan, dan melacak barang hilang secara terstruktur.",
-    metrics: ["4-person team", "16 views", "26 API endpoints", "7 tables"],
+      "Platform lost-and-found terstruktur untuk mahasiswa IPB, mencakup pelaporan barang, moderasi, proses klaim, notifikasi, dan alur serah terima keamanan.",
+    metrics: ["16 views", "26 API endpoints", "7 tables", "3 roles"],
     stack: ["React", "FastAPI", "PostgreSQL", "Figma"],
-    repo: "https://github.com/daffamumtaz/titik-temu-frontend",
-    demo: "https://titik-temu-frontend.vercel.app",
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/titik-temu-frontend", icon: GitFork },
+      { labelEn: "Live", labelId: "Live", href: "https://titik-temu-frontend.vercel.app", icon: ExternalLink },
+    ],
   },
   {
     name: "PortalRancajaya",
-    kicker: "Full-Stack Web · Community Service",
-    year: "2026",
-    tone: "green",
-    tags: "software ux",
+    period: "Jun - Aug 2026",
+    contextEn: "Community Service",
+    contextId: "Pengabdian Masyarakat",
+    roleEn: "Solo Full-Stack Developer",
+    roleId: "Solo Full-Stack Developer",
+    categoryEn: "Village information CMS",
+    categoryId: "CMS informasi desa",
+    tags: ["software", "fullstack", "ux", "community"],
     descriptionEn:
-      "A live village information portal and CMS built independently for Rancajaya, including a practical handover system for local administrators.",
+      "A village information portal and CMS that turns public service, village profile, UMKM, agriculture, APBDes, and news content into structured, administrator-managed collections.",
     descriptionId:
-      "Portal informasi desa dan CMS yang dikembangkan secara mandiri untuk Rancajaya, lengkap dengan sistem serah terima bagi administrator lokal.",
-    metrics: ["6,594 residents", "13 CMS collections", "9 pages", "11 handover docs"],
-    stack: ["Astro", "TypeScript", "Tailwind CSS", "Decap CMS"],
-    repo: "https://github.com/daffamumtaz/portal-rancajaya",
-    demo: "https://portalrancajaya.netlify.app/",
+      "Portal informasi desa dan CMS yang mengubah layanan publik, profil desa, UMKM, pertanian, APBDes, dan berita menjadi koleksi terstruktur yang dapat dikelola admin.",
+    metrics: ["61 files", "13 CMS collections", "9 pages", "11 docs"],
+    stack: ["Astro", "TypeScript", "Decap CMS", "Netlify"],
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/portal-rancajaya", icon: GitFork },
+      { labelEn: "Live", labelId: "Live", href: "https://portalrancajaya.netlify.app/", icon: ExternalLink },
+    ],
   },
   {
     name: "Customer Segmentation MLOps",
-    kicker: "Machine Learning · MLOps",
-    year: "2025",
-    tone: "violet",
-    tags: "mlops data",
+    period: "Sep - Dec 2025",
+    contextEn: "ASAH 2025 Final Assignment",
+    contextId: "Tugas Akhir ASAH 2025",
+    roleEn: "Solo ML/MLOps Developer",
+    roleId: "Solo ML/MLOps Developer",
+    categoryEn: "Local MLOps workflow",
+    categoryId: "Workflow MLOps lokal",
+    tags: ["data", "mlops", "capstone"],
     descriptionEn:
-      "An end-to-end customer segmentation workflow with experiment tracking, model serving, automated preprocessing, and live monitoring.",
+      "A local MLOps workflow for customer segmentation, combining clustering experiments, artifact tracking, model inference, preprocessing automation, and service monitoring.",
     descriptionId:
-      "Workflow segmentasi pelanggan end-to-end dengan experiment tracking, model serving, preprocessing otomatis, dan pemantauan langsung.",
-    metrics: ["200 records", "7 model runs", "0.5164 silhouette", "10 metric families"],
-    stack: ["Python", "Scikit-Learn", "MLflow", "Prometheus"],
-    repo: "https://github.com/daffamumtaz/customer-segmentation-mlops",
+      "Workflow MLOps lokal untuk segmentasi pelanggan yang menggabungkan eksperimen clustering, artifact tracking, inferensi model, otomasi preprocessing, dan monitoring layanan.",
+    metrics: ["7 configs", "k=2", "0.5164 silhouette", "10 metrics"],
+    stack: ["Python", "Scikit-Learn", "MLflow", "Flask", "Prometheus", "Grafana"],
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/customer-segmentation-mlops", icon: GitFork },
+    ],
   },
   {
     name: "Sigma-D",
-    kicker: "Applied AI · Predictive Maintenance",
-    year: "2025",
-    tone: "orange",
-    tags: "ai mlops software",
+    period: "Oct - Dec 2025",
+    contextEn: "ASAH 2025 Dicoding Capstone",
+    contextId: "Capstone ASAH 2025 Dicoding",
+    roleEn: "Machine Learning Engineer",
+    roleId: "Machine Learning Engineer",
+    categoryEn: "Predictive maintenance",
+    categoryId: "Predictive maintenance",
+    tags: ["data", "mlops", "capstone"],
     descriptionEn:
-      "A predictive-maintenance copilot that detects anomalies, classifies failure types, and supports AI-assisted maintenance recommendations.",
+      "A predictive maintenance capstone project using machine sensor data to predict failure risk, classify failure types, and support AI-assisted maintenance recommendations.",
     descriptionId:
-      "Copilot predictive maintenance untuk mendeteksi anomali, mengklasifikasikan tipe kerusakan, dan mendukung rekomendasi perawatan berbasis AI.",
-    metrics: ["5-person team", "10,000 rows", "32 API endpoints", "88.28 final score"],
-    stack: ["TensorFlow", "FastAPI", "React", "PostgreSQL"],
-    repo: "https://github.com/Sigma-D-Asah/machine-learning",
-    demo: "https://sigma-asah.netlify.app",
+      "Proyek capstone predictive maintenance berbasis data sensor mesin untuk memprediksi risiko kegagalan, mengklasifikasikan tipe kerusakan, dan mendukung rekomendasi perawatan berbantuan AI.",
+    metrics: ["10,000 records", "6 features", "binary prediction", "6 classes"],
+    stack: ["Python", "TensorFlow/Keras", "FastAPI", "Scikit-Learn"],
+    links: [
+      { labelEn: "ML Repo", labelId: "Repo ML", href: "https://github.com/Sigma-D-Asah/machine-learning", icon: GitFork },
+      { labelEn: "Demo", labelId: "Demo", href: "https://sigma-asah.netlify.app", icon: ExternalLink },
+    ],
   },
   {
     name: "MyToko",
-    kicker: "Full-Stack Web · Competition",
-    year: "2025",
-    tone: "pink",
-    tags: "software ux",
+    period: "Sep - Nov 2025",
+    contextEn: "Competition",
+    contextId: "Kompetisi",
+    roleEn: "Frontend/UI and Supabase Contributor",
+    roleId: "Kontributor Frontend/UI dan Supabase",
+    categoryEn: "MSME e-commerce SaaS",
+    categoryId: "SaaS e-commerce UMKM",
+    tags: ["software", "fullstack", "ux", "competition"],
     descriptionEn:
-      "An MSME e-commerce platform with storefront, checkout, order tracking, admin workflows, and secure Supabase data access.",
+      "A SaaS-style e-commerce platform for MSMEs, covering storefront, checkout, invoices, order tracking, admin workflows, and Supabase-backed data access.",
     descriptionId:
-      "Platform e-commerce UMKM dengan storefront, checkout, pelacakan pesanan, alur admin, dan akses data Supabase yang aman.",
-    metrics: ["2nd Place", "3-person team", "18 routes", "8 API modules"],
+      "Platform e-commerce bergaya SaaS untuk UMKM, mencakup storefront, checkout, invoice, pelacakan pesanan, workflow admin, dan akses data berbasis Supabase.",
+    metrics: ["3-person team", "18 routes", "8 API modules", "prototype"],
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-    repo: "https://github.com/daffamumtaz/mytoko-agritechjam",
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/mytoko-agritechjam", icon: GitFork },
+    ],
   },
-];
-
-const additionalProjects = [
   {
     name: "AQI Bangladesh Forecasting",
-    type: "Data Science · Time Series",
-    outcome: "R² 0.9986 · MAE 1.13 · 1,048,551 records",
-    stack: "LightGBM · Python · Docker",
-    href: "https://github.com/daffamumtaz/aqi-bangladesh-prediction",
-    tone: "blue",
+    period: "2026",
+    contextEn: "Coursework",
+    contextId: "Tugas Kuliah",
+    roleEn: "Machine Learning Developer",
+    roleId: "Machine Learning Developer",
+    categoryEn: "Historical AQI forecasting",
+    categoryId: "Forecasting AQI historis",
+    tags: ["data", "coursework"],
+    descriptionEn:
+      "A historical AQI forecasting pipeline using time-aware features and LightGBM across multi-city air quality observations.",
+    descriptionId:
+      "Pipeline forecasting AQI historis menggunakan fitur berbasis waktu dan LightGBM pada observasi kualitas udara lintas kota.",
+    metrics: ["1,048,551 records", "30 cities", "98 features", "R2 0.9986"],
+    stack: ["Python", "LightGBM", "Pandas", "Docker", "GitHub Actions"],
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/aqi-bangladesh-prediction", icon: GitFork },
+    ],
   },
   {
     name: "Produce Freshness Classifier",
-    type: "Computer Vision",
-    outcome: "98.70% accuracy · 4,391 test images",
-    stack: "MobileNetV2 · OpenCV · TensorFlow",
-    href: "https://github.com/daffamumtaz/produce-freshness-classifier",
-    tone: "green",
+    period: "2026",
+    contextEn: "Coursework",
+    contextId: "Tugas Kuliah",
+    roleEn: "Machine Learning Developer",
+    roleId: "Machine Learning Developer",
+    categoryEn: "Computer vision classifier",
+    categoryId: "Klasifikasi computer vision",
+    tags: ["data", "coursework"],
+    descriptionEn:
+      "A fresh-versus-rotten produce classifier comparing classical machine learning and MobileNetV2 transfer learning across controlled experiments.",
+    descriptionId:
+      "Classifier produk segar-versus-busuk yang membandingkan machine learning klasik dan transfer learning MobileNetV2 melalui eksperimen terkontrol.",
+    metrics: ["11 scenarios", "4,391 images", "98.70% accuracy", "98.70% F1"],
+    stack: ["OpenCV", "Scikit-Learn", "TensorFlow", "MobileNetV2"],
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/produce-freshness-classifier", icon: GitFork },
+    ],
   },
   {
     name: "PSO TSP West Java",
-    type: "Computational Intelligence",
-    outcome: "12.03% shorter route · 27 locations",
-    stack: "Python · Streamlit · Plotly",
-    href: "https://github.com/daffamumtaz/pso-tsp-westjava",
-    tone: "orange",
+    period: "2026",
+    contextEn: "Coursework",
+    contextId: "Tugas Kuliah",
+    roleEn: "Team Member",
+    roleId: "Anggota Tim",
+    categoryEn: "Route optimization",
+    categoryId: "Optimasi rute",
+    tags: ["data", "coursework"],
+    descriptionEn:
+      "A Discrete PSO route optimizer and interactive Streamlit dashboard for comparing TSP routes across West Java regencies and cities.",
+    descriptionId:
+      "Optimizer rute Discrete PSO dan dashboard Streamlit interaktif untuk membandingkan rute TSP pada kabupaten dan kota di Jawa Barat.",
+    metrics: ["27 locations", "12.03% shorter", "107.33 km saved", "4 presets"],
+    stack: ["Python", "Streamlit", "Plotly", "Discrete PSO"],
+    links: [
+      { labelEn: "Source", labelId: "Kode", href: "https://github.com/daffamumtaz/pso-tsp-westjava", icon: GitFork },
+    ],
   },
   {
     name: "CookHub",
-    type: "UX Research · Product Design",
-    outcome: "Research synthesis · Interactive prototype",
-    stack: "Figma · FigJam",
-    href: "https://www.figma.com/proto/BABFkz6K4Tm9QriVbPLbWi/Desain-CookHub",
-    tone: "pink",
+    period: "2025",
+    contextEn: "Coursework",
+    contextId: "Tugas Kuliah",
+    roleEn: "UX Researcher and UI/UX Designer",
+    roleId: "UX Researcher dan UI/UX Designer",
+    categoryEn: "Product research prototype",
+    categoryId: "Prototype riset produk",
+    tags: ["ux", "coursework"],
+    descriptionEn:
+      "A UX research and interactive prototype study for an AI-assisted recipe discovery and cooking companion.",
+    descriptionId:
+      "Riset UX dan studi prototype interaktif untuk pendamping pencarian resep dan memasak berbantuan AI.",
+    metrics: ["persona", "journey map", "prototype", "research board"],
+    stack: ["Figma", "FigJam"],
+    links: [
+      { labelEn: "Prototype", labelId: "Prototype", href: "https://www.figma.com/proto/BABFkz6K4Tm9QriVbPLbWi/Desain-CookHub", icon: ExternalLink },
+      { labelEn: "Research", labelId: "Riset", href: "https://www.figma.com/board/cEbziGCeaQmyO0a76PcLfd/FigJam-CookHub", icon: FileText },
+    ],
   },
+];
+
+const filters = [
+  { key: "all", labelEn: "All", labelId: "Semua" },
+  { key: "software", labelEn: "Software", labelId: "Software" },
+  { key: "data", labelEn: "Data / ML", labelId: "Data / ML" },
+  { key: "mlops", labelEn: "MLOps", labelId: "MLOps" },
+  { key: "ux", labelEn: "UX", labelId: "UX" },
+  { key: "fullstack", labelEn: "Full-Stack", labelId: "Full-Stack" },
+  { key: "coursework", labelEn: "Coursework", labelId: "Tugas Kuliah" },
+  { key: "capstone", labelEn: "Capstone", labelId: "Capstone" },
+  { key: "competition", labelEn: "Competition", labelId: "Kompetisi" },
+  { key: "community", labelEn: "Community", labelId: "Komunitas" },
 ];
 
 const skillGroups = [
@@ -142,19 +234,19 @@ const skillGroups = [
     items: ["Python", "JavaScript", "TypeScript", "SQL", "Java", "C/C++", "Scala"],
   },
   {
-    title: "Software",
+    title: "Software Systems",
     icon: BriefcaseBusiness,
-    items: ["React", "Astro", "FastAPI", "Next.js", "Tailwind CSS", "Vite"],
+    items: ["React", "Astro", "Next.js", "FastAPI", "Flask", "Tailwind CSS"],
   },
   {
-    title: "Data & AI",
+    title: "Data and AI",
     icon: BrainCircuit,
-    items: ["TensorFlow", "PyTorch", "Scikit-Learn", "Hugging Face", "MLflow"],
+    items: ["TensorFlow", "PyTorch", "Scikit-Learn", "LightGBM", "Hugging Face", "MLflow"],
   },
   {
-    title: "Platforms & Design",
+    title: "Platforms and Product",
     icon: Database,
-    items: ["PostgreSQL", "Supabase", "Docker", "GitHub Actions", "Figma", "Grafana"],
+    items: ["PostgreSQL", "Supabase", "Docker", "GitHub Actions", "Prometheus", "Grafana", "Figma"],
   },
 ];
 ---
@@ -166,16 +258,16 @@ const skillGroups = [
     <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
-      content="Portfolio of Daffa Naufal Mumtaz Heryadi, a Computer Science student focused on software development, data science, and applied AI/ML."
+      content="Portfolio of Daffa Naufal Mumtaz Heryadi, a Computer Science student focused on software development, data science, applied AI/ML, MLOps, and UX/product systems."
     />
-    <meta name="theme-color" content="#f8f7ff" />
+    <meta name="theme-color" content="#f6f5f4" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>Daffa Naufal Mumtaz Heryadi · Portfolio</title>
+    <title>Daffa Naufal Mumtaz Heryadi - Portfolio</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -192,7 +284,7 @@ const skillGroups = [
           <a href="#about" data-en="About" data-id="Tentang">About</a>
           <a href="#projects" data-en="Projects" data-id="Proyek">Projects</a>
           <a href="#experience" data-en="Experience" data-id="Pengalaman">Experience</a>
-          <a href="#skills" data-en="Skills" data-id="Keahlian">Skills</a>
+          <a href="#skills" data-en="Stack" data-id="Stack">Stack</a>
           <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
         </div>
 
@@ -203,6 +295,10 @@ const skillGroups = [
             <span aria-hidden="true">/</span>
             <button class="language-option" type="button" data-language="id">ID</button>
           </div>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+            <Sun class="theme-sun" size={18} />
+            <Moon class="theme-moon" size={18} />
+          </button>
           <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-button>
             <Menu class="menu-open-icon" size={22} />
             <X class="menu-close-icon" size={22} />
@@ -213,41 +309,46 @@ const skillGroups = [
 
     <main id="main-content">
       <section class="hero" id="home">
-        <div class="hero-color-grid" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
         <img
           class="hero-portrait"
-          src="/portrait-daffa.jpg"
+          src="/pasfoto-fullbody.png"
           alt="Daffa Naufal Mumtaz Heryadi seated and smiling"
           fetchpriority="high"
         />
+        <div class="sticker-field" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
         <div class="hero-content">
           <div class="availability">
             <span class="availability-dot"></span>
-            <span data-en="Open to internship opportunities" data-id="Terbuka untuk kesempatan internship"
-              >Open to internship opportunities</span
+            <span data-en="Open to general tech internships" data-id="Terbuka untuk internship general tech"
+              >Open to general tech internships</span
             >
           </div>
-          <p class="hero-kicker">Hello, I'm</p>
-          <h1>Daffa Naufal<br />Mumtaz Heryadi<span class="accent-dot">.</span></h1>
+          <p class="hero-kicker">Daffa Naufal Mumtaz Heryadi</p>
+          <h1
+            data-en="Practical software, data, and ML systems, built with product sense."
+            data-id="Sistem software, data, dan ML praktis, dibangun dengan product sense."
+          >
+            Practical software, data, and ML systems, built with product sense.
+          </h1>
           <p class="hero-role" aria-live="polite">
             <span data-role-text>Software Developer</span>
             <span class="role-cursor" aria-hidden="true"></span>
           </p>
           <p
             class="hero-summary"
-            data-en="Computer Science student at IPB University building thoughtful software and applied AI systems that turn complex problems into practical, usable products."
-            data-id="Mahasiswa Ilmu Komputer IPB University yang membangun perangkat lunak dan sistem AI terapan untuk mengubah masalah kompleks menjadi produk yang praktis dan mudah digunakan."
+            data-en="Computer Science student at IPB University exploring the space between software engineering, data systems, applied AI/ML, MLOps, and UX-oriented product workflows."
+            data-id="Mahasiswa Ilmu Komputer IPB University yang mengeksplorasi software engineering, sistem data, AI/ML terapan, MLOps, dan workflow produk yang berorientasi UX."
           >
-            Computer Science student at IPB University building thoughtful software and applied AI systems that turn
-            complex problems into practical, usable products.
+            Computer Science student at IPB University exploring the space between software engineering, data systems,
+            applied AI/ML, MLOps, and UX-oriented product workflows.
           </p>
 
           <div class="hero-actions">
             <a class="button button-primary" href="#projects">
               <Sparkles size={18} />
-              <span data-en="Explore my work" data-id="Lihat karya saya">Explore my work</span>
+              <span data-en="Open project archive" data-id="Buka arsip proyek">Open project archive</span>
             </a>
             <a class="button button-secondary" href="/Daffa-Naufal-Mumtaz-Heryadi-CV.pdf" target="_blank">
               <Download size={18} />
@@ -287,24 +388,27 @@ const skillGroups = [
           </div>
           <div class="impact-item">
             <strong>450<span> hrs</span></strong>
-            <p data-en="ASAH ML learning" data-id="Pembelajaran ML ASAH">ASAH ML learning</p>
+            <p data-en="ASAH 2025 ML cohort" data-id="Cohort ML ASAH 2025">ASAH 2025 ML cohort</p>
           </div>
           <div class="impact-item">
             <strong>80<span>+</span></strong>
-            <p data-en="Students supported" data-id="Mahasiswa didampingi">Students supported</p>
+            <p data-en="Students supported as TA" data-id="Mahasiswa didampingi sebagai TA">Students supported as TA</p>
           </div>
           <div class="impact-item">
-            <strong>9<span> projects</span></strong>
-            <p data-en="Across software, data & AI" data-id="Software, data & AI">Across software, data & AI</p>
+            <strong>9<span> systems</span></strong>
+            <p data-en="Software, data, ML, and UX" data-id="Software, data, ML, dan UX">Software, data, ML, and UX</p>
           </div>
         </div>
       </section>
 
       <section class="section section-about" id="about">
         <div class="section-heading">
-          <p class="eyebrow" data-en="About me" data-id="Tentang saya">About me</p>
-          <h2 data-en="Software thinking, strengthened by data." data-id="Cara berpikir software, diperkuat oleh data.">
-            Software thinking, strengthened by data.
+          <p class="eyebrow" data-en="Builder note" data-id="Catatan builder">Builder note</p>
+          <h2
+            data-en="I like building systems that are structured enough to scale and clear enough to use."
+            data-id="Saya suka membangun sistem yang cukup terstruktur untuk berkembang dan cukup jelas untuk digunakan."
+          >
+            I like building systems that are structured enough to scale and clear enough to use.
           </h2>
         </div>
 
@@ -312,18 +416,17 @@ const skillGroups = [
           <div class="about-copy">
             <p
               class="lead"
-              data-en="I enjoy working where product logic, user needs, and intelligent systems meet."
-              data-id="Saya menikmati proses kerja di titik temu antara logika produk, kebutuhan pengguna, dan sistem cerdas."
+              data-en="My work sits across full-stack applications, data science workflows, MLOps prototypes, and product-facing UX systems."
+              data-id="Karya saya berada di antara aplikasi full-stack, workflow data science, prototype MLOps, dan sistem UX yang menghadap pengguna."
             >
-              I enjoy working where product logic, user needs, and intelligent systems meet.
+              My work sits across full-stack applications, data science workflows, MLOps prototypes, and product-facing UX systems.
             </p>
             <p
-              data-en="My projects range from community information platforms and e-commerce experiences to computer vision, forecasting, and production-oriented ML workflows. I care about making technology work beyond the notebook: through clear interfaces, reliable APIs, measurable evaluation, and useful documentation."
-              data-id="Proyek saya mencakup platform informasi komunitas, pengalaman e-commerce, computer vision, forecasting, dan workflow ML berorientasi produksi. Saya ingin teknologi tidak hanya bekerja di notebook, tetapi juga melalui antarmuka yang jelas, API yang andal, evaluasi terukur, dan dokumentasi yang berguna."
+              data-en="I care about turning ambiguous problems into usable interfaces, measurable pipelines, documented decisions, and maintainable technical structures."
+              data-id="Saya peduli pada proses mengubah masalah yang ambigu menjadi antarmuka yang bisa dipakai, pipeline yang terukur, keputusan yang terdokumentasi, dan struktur teknis yang mudah dirawat."
             >
-              My projects range from community information platforms and e-commerce experiences to computer vision,
-              forecasting, and production-oriented ML workflows. I care about making technology work beyond the
-              notebook: through clear interfaces, reliable APIs, measurable evaluation, and useful documentation.
+              I care about turning ambiguous problems into usable interfaces, measurable pipelines, documented decisions,
+              and maintainable technical structures.
             </p>
             <div class="location-row">
               <span><MapPin size={18} /> Bekasi, Indonesia</span>
@@ -336,12 +439,15 @@ const skillGroups = [
             <div>
               <p class="panel-label" data-en="Education" data-id="Pendidikan">Education</p>
               <h3>Bachelor of Computer Science</h3>
-              <p>IPB University · 2023–2027</p>
+              <p>IPB University - 2023 to 2027 expected</p>
               <div class="panel-divider"></div>
               <p class="panel-label" data-en="Focused training" data-id="Pelatihan utama">Focused training</p>
-              <h3>ASAH 2025 · Machine Learning Cohort</h3>
-              <p data-en="Led by Dicoding · 450 learning hours · Final score 88.28" data-id="Dipimpin oleh Dicoding · 450 jam belajar · Nilai akhir 88,28">
-                Led by Dicoding · 450 learning hours · Final score 88.28
+              <h3>ASAH 2025 Machine Learning Cohort</h3>
+              <p
+                data-en="Dicoding Indonesia - 450 learning hours - final score 88.28"
+                data-id="Dicoding Indonesia - 450 jam belajar - nilai akhir 88.28"
+              >
+                Dicoding Indonesia - 450 learning hours - final score 88.28
               </p>
             </div>
           </div>
@@ -351,10 +457,20 @@ const skillGroups = [
       <section class="section section-projects" id="projects">
         <div class="section-heading section-heading-row">
           <div>
-            <p class="eyebrow" data-en="Selected projects" data-id="Proyek pilihan">Selected projects</p>
-            <h2 data-en="Built to work in the real world." data-id="Dibangun untuk digunakan di dunia nyata.">
-              Built to work in the real world.
+            <p class="eyebrow" data-en="Project systems" data-id="Sistem proyek">Project systems</p>
+            <h2
+              data-en="A technical archive of practical systems and measured outputs."
+              data-id="Arsip teknis berisi sistem praktis dan output yang terukur."
+            >
+              A technical archive of practical systems and measured outputs.
             </h2>
+            <p
+              class="section-subtitle"
+              data-en="Software, data, ML, MLOps, and UX projects organized by system type, context, scope, and evidence."
+              data-id="Proyek software, data, ML, MLOps, dan UX yang disusun berdasarkan tipe sistem, konteks, scope, dan bukti teknis."
+            >
+              Software, data, ML, MLOps, and UX projects organized by system type, context, scope, and evidence.
+            </p>
           </div>
           <a class="text-link" href="https://github.com/daffamumtaz?tab=repositories" target="_blank" rel="noreferrer">
             <span data-en="All repositories" data-id="Semua repositori">All repositories</span>
@@ -363,30 +479,52 @@ const skillGroups = [
         </div>
 
         <div class="project-filters" role="group" aria-label="Filter projects">
-          <button class="filter-button is-active" type="button" data-filter="all" data-en="All" data-id="Semua">All</button>
-          <button class="filter-button" type="button" data-filter="software">Software</button>
-          <button class="filter-button" type="button" data-filter="data">Data / ML</button>
-          <button class="filter-button" type="button" data-filter="mlops">MLOps</button>
-          <button class="filter-button" type="button" data-filter="ux">UX</button>
+          {
+            filters.map((filter) => (
+              <button
+                class="filter-button"
+                class:list={{ "is-active": filter.key === "all" }}
+                type="button"
+                data-filter={filter.key}
+                data-en={filter.labelEn}
+                data-id={filter.labelId}
+              >
+                {filter.labelEn}
+              </button>
+            ))
+          }
         </div>
 
         <div class="project-grid">
           {
-            selectedProjects.map((project, index) => (
-              <article class={`project-card tone-${project.tone}`} data-project data-tags={project.tags}>
-                <div class="project-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
-                <div class="project-meta">
-                  <span>{project.kicker}</span>
-                  <span>{project.year}</span>
+            projects.map((project, index) => (
+              <article class="project-card" data-project data-tags={project.tags.join(" ")}>
+                <div class="project-topline">
+                  <span class="project-index">{String(index + 1).padStart(2, "0")}</span>
+                  <span class="project-context" data-en={project.contextEn} data-id={project.contextId}>
+                    {project.contextEn}
+                  </span>
                 </div>
                 <h3>{project.name}</h3>
-                <p
-                  class="project-description"
-                  data-en={project.descriptionEn}
-                  data-id={project.descriptionId}
-                >
+                <p class="project-category" data-en={project.categoryEn} data-id={project.categoryId}>
+                  {project.categoryEn}
+                </p>
+                <p class="project-description" data-en={project.descriptionEn} data-id={project.descriptionId}>
                   {project.descriptionEn}
                 </p>
+                <div class="project-meta-grid">
+                  <div>
+                    <span data-en="Role" data-id="Peran">Role</span>
+                    <strong data-en={project.roleEn} data-id={project.roleId}>{project.roleEn}</strong>
+                  </div>
+                  <div>
+                    <span data-en="Period" data-id="Periode">Period</span>
+                    <strong>{project.period}</strong>
+                  </div>
+                </div>
+                <div class="tag-row" aria-label={`${project.name} tags`}>
+                  {project.tags.map((tag) => <span>{tag}</span>)}
+                </div>
                 <div class="metric-row">
                   {project.metrics.map((metric) => <span>{metric}</span>)}
                 </div>
@@ -394,46 +532,19 @@ const skillGroups = [
                   {project.stack.map((item) => <span>{item}</span>)}
                 </div>
                 <div class="project-links">
-                  <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} source code`}>
-                    <GitFork size={19} />
-                    <span data-en="Source" data-id="Kode">Source</span>
-                  </a>
-                  {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noreferrer" aria-label={`${project.name} live demo`}>
-                      <ExternalLink size={19} />
-                      <span>Live</span>
-                    </a>
-                  )}
+                  {
+                    project.links.map((link) => {
+                      const Icon = link.icon;
+                      return (
+                        <a href={link.href} target="_blank" rel="noreferrer" aria-label={`${project.name} ${link.labelEn}`}>
+                          <Icon size={18} />
+                          <span data-en={link.labelEn} data-id={link.labelId}>{link.labelEn}</span>
+                        </a>
+                      );
+                    })
+                  }
                 </div>
               </article>
-            ))
-          }
-        </div>
-
-        <div class="additional-heading">
-          <div>
-            <p class="eyebrow" data-en="Additional projects" data-id="Proyek tambahan">Additional projects</p>
-            <h3 data-en="More experiments, measurable outcomes." data-id="Eksperimen lainnya dengan hasil yang terukur.">
-              More experiments, measurable outcomes.
-            </h3>
-          </div>
-        </div>
-
-        <div class="additional-list">
-          {
-            additionalProjects.map((project) => (
-              <a class={`additional-project tone-${project.tone}`} href={project.href} target="_blank" rel="noreferrer">
-                <span class="additional-accent" aria-hidden="true"></span>
-                <div class="additional-main">
-                  <p>{project.type}</p>
-                  <h4>{project.name}</h4>
-                </div>
-                <div class="additional-result">
-                  <strong>{project.outcome}</strong>
-                  <span>{project.stack}</span>
-                </div>
-                <ArrowUpRight size={20} />
-              </a>
             ))
           }
         </div>
@@ -441,59 +552,59 @@ const skillGroups = [
 
       <section class="section section-experience" id="experience">
         <div class="section-heading">
-          <p class="eyebrow" data-en="Experience & involvement" data-id="Pengalaman & organisasi">
-            Experience & involvement
+          <p class="eyebrow" data-en="Experience and involvement" data-id="Pengalaman dan organisasi">
+            Experience and involvement
           </p>
-          <h2 data-en="Learning by contributing." data-id="Belajar dengan berkontribusi.">Learning by contributing.</h2>
+          <h2 data-en="Practice, responsibility, and technical communication." data-id="Praktik, tanggung jawab, dan komunikasi teknis.">
+            Practice, responsibility, and technical communication.
+          </h2>
         </div>
 
         <div class="timeline">
           <article class="timeline-item">
             <div class="timeline-marker"><BriefcaseBusiness size={19} /></div>
-            <div class="timeline-period">Aug 2025 – Jun 2026</div>
+            <div class="timeline-period">Aug 2025 - Jun 2026</div>
             <div class="timeline-content">
-              <p class="timeline-type" data-en="Teaching experience" data-id="Pengalaman mengajar">
-                Teaching experience
-              </p>
+              <p class="timeline-type" data-en="Teaching experience" data-id="Pengalaman mengajar">Teaching experience</p>
               <h3>Teaching Assistant</h3>
-              <p class="timeline-org">Department of Computer Science · IPB University</p>
+              <p class="timeline-org">Department of Computer Science - IPB University</p>
               <p
-                data-en="Supported 80+ students across Introduction to Computational Mathematics and User Experience Design, facilitated 28 practicum sessions, and reviewed 20+ assignments, projects, and quizzes."
-                data-id="Mendampingi 80+ mahasiswa pada mata kuliah Introduction to Computational Mathematics dan User Experience Design, memfasilitasi 28 sesi praktikum, serta meninjau 20+ tugas, proyek, dan kuis."
+                data-en="Assisted 80+ undergraduate students across Introduction to Computational Mathematics and User Experience Design, supported 28 practicum sessions, and reviewed 20+ assignments, quizzes, and projects."
+                data-id="Mendampingi 80+ mahasiswa pada Introduction to Computational Mathematics dan User Experience Design, mendukung 28 sesi praktikum, serta meninjau 20+ tugas, kuis, dan proyek."
               >
-                Supported 80+ students across Introduction to Computational Mathematics and User Experience Design,
-                facilitated 28 practicum sessions, and reviewed 20+ assignments, projects, and quizzes.
+                Assisted 80+ undergraduate students across Introduction to Computational Mathematics and User Experience Design,
+                supported 28 practicum sessions, and reviewed 20+ assignments, quizzes, and projects.
               </p>
             </div>
           </article>
 
           <article class="timeline-item">
             <div class="timeline-marker"><Users size={19} /></div>
-            <div class="timeline-period">Jan – Dec 2025</div>
+            <div class="timeline-period">Jan - Dec 2025</div>
             <div class="timeline-content">
               <p class="timeline-type" data-en="Organization" data-id="Organisasi">Organization</p>
               <h3>Staff of Research and Technology</h3>
               <p class="timeline-org">Himalkom IPB</p>
               <p
-                data-en="Coordinated a student-interest survey with 100+ responses and contributed to analysis and data visualizations for studies involving 120–160 respondents."
-                data-id="Mengoordinasikan survei minat mahasiswa dengan 100+ respons dan berkontribusi pada analisis serta visualisasi data untuk studi dengan 120–160 responden."
+                data-en="Coordinated a student-interest survey with 100+ responses and contributed to analysis and visual summaries for studies involving 120-160 respondents."
+                data-id="Mengoordinasikan survei minat mahasiswa dengan 100+ respons serta berkontribusi pada analisis dan ringkasan visual untuk studi dengan 120-160 responden."
               >
-                Coordinated a student-interest survey with 100+ responses and contributed to analysis and data
-                visualizations for studies involving 120–160 respondents.
+                Coordinated a student-interest survey with 100+ responses and contributed to analysis and visual summaries
+                for studies involving 120-160 respondents.
               </p>
             </div>
           </article>
 
           <article class="timeline-item">
             <div class="timeline-marker"><Users size={19} /></div>
-            <div class="timeline-period">Jan 2024 – Dec 2025</div>
+            <div class="timeline-period">Jan 2024 - Dec 2025</div>
             <div class="timeline-content">
               <p class="timeline-type" data-en="Organization" data-id="Organisasi">Organization</p>
-              <h3>Administration 2024 · Treasurer 2025</h3>
+              <h3>Administration 2024 - Treasurer 2025</h3>
               <p class="timeline-org">IEEE Student Branch IPB</p>
               <p
                 data-en="Managed documentation for 24+ programs, maintained records for 61+ members, and tracked up to IDR 7 million in organizational funds."
-                data-id="Mengelola dokumentasi 24+ program, memelihara data 61+ anggota, dan mencatat dana organisasi hingga Rp7 juta."
+                data-id="Mengelola dokumentasi 24+ program, memelihara data 61+ anggota, dan mencatat dana organisasi hingga IDR 7 juta."
               >
                 Managed documentation for 24+ programs, maintained records for 61+ members, and tracked up to IDR 7
                 million in organizational funds.
@@ -503,19 +614,15 @@ const skillGroups = [
         </div>
 
         <div class="recognition-band">
-          <div class="recognition-icon"><Award size={28} /></div>
+          <div class="recognition-icon"><Award size={26} /></div>
           <div>
-            <p class="eyebrow" data-en="Recognition & certification" data-id="Pencapaian & sertifikasi">
-              Recognition & certification
-            </p>
-            <h3>2nd Place · AgriTechJam Agriinformatics 2025</h3>
-            <p data-en="Frontend Developer for MyToko in a 3-person campus-level team." data-id="Frontend Developer MyToko dalam tim tingkat kampus beranggotakan 3 orang.">
-              Frontend Developer for MyToko in a 3-person campus-level team.
-            </p>
+            <p class="eyebrow" data-en="Recognition" data-id="Pencapaian">Recognition</p>
+            <h3>2nd Place, AgriTechJam - Agriinformatics 2025</h3>
+            <p>Best Graduate, Trenmatika Islamic Boarding High School, Bekasi, 2023</p>
           </div>
           <a href="https://bit.ly/daffamumtaz-cert-bnspads" target="_blank" rel="noreferrer">
             <CircleCheckBig size={21} />
-            <span>Associate Data Scientist · BNSP</span>
+            <span>Associate Data Scientist - BNSP</span>
             <ArrowUpRight size={18} />
           </a>
         </div>
@@ -523,9 +630,9 @@ const skillGroups = [
 
       <section class="section section-skills" id="skills">
         <div class="section-heading">
-          <p class="eyebrow" data-en="Skills" data-id="Keahlian">Skills</p>
-          <h2 data-en="A toolkit for product and intelligence." data-id="Perangkat untuk produk dan sistem cerdas.">
-            A toolkit for product and intelligence.
+          <p class="eyebrow" data-en="Working stack" data-id="Stack kerja">Working stack</p>
+          <h2 data-en="Tools grouped by how I use them." data-id="Tools yang dikelompokkan berdasarkan cara saya menggunakannya.">
+            Tools grouped by how I use them.
           </h2>
         </div>
 
@@ -564,21 +671,20 @@ const skillGroups = [
       </section>
 
       <section class="contact-section" id="contact">
-        <div class="contact-stripe" aria-hidden="true"></div>
         <div class="contact-content">
-          <p class="eyebrow" data-en="Let's connect" data-id="Mari terhubung">Let's connect</p>
+          <p class="eyebrow" data-en="Contact" data-id="Kontak">Contact</p>
           <h2
-            data-en="Have an internship, project, or good problem to solve?"
-            data-id="Punya kesempatan internship, proyek, atau masalah menarik untuk diselesaikan?"
+            data-en="Open to internships where software, data, and product thinking meet."
+            data-id="Terbuka untuk internship di titik temu software, data, dan product thinking."
           >
-            Have an internship, project, or good problem to solve?
+            Open to internships where software, data, and product thinking meet.
           </h2>
           <p
-            data-en="I am especially interested in software development, data science, and AI engineering opportunities in tech and fintech."
-            data-id="Saya sangat tertarik pada kesempatan software development, data science, dan AI engineering di industri teknologi maupun fintech."
+            data-en="I am especially interested in software engineering, data science, AI engineering, and MLOps opportunities in tech or fintech environments."
+            data-id="Saya terutama tertarik pada peluang software engineering, data science, AI engineering, dan MLOps di lingkungan tech atau fintech."
           >
-            I am especially interested in software development, data science, and AI engineering opportunities in
-            tech and fintech.
+            I am especially interested in software engineering, data science, AI engineering, and MLOps opportunities in
+            tech or fintech environments.
           </p>
           <div class="contact-actions">
             <a class="button button-light" href="mailto:naufalmumtazdaffa037@gmail.com">
@@ -598,10 +704,10 @@ const skillGroups = [
     <footer>
       <div>
         <span class="brand-mark">DN</span>
-        <p>© 2026 Daffa Naufal Mumtaz Heryadi</p>
+        <p>(c) 2026 Daffa Naufal Mumtaz Heryadi</p>
       </div>
-      <p data-en="Designed and built with Astro." data-id="Didesain dan dibangun dengan Astro.">
-        Designed and built with Astro.
+      <p data-en="Designed as a small technical archive." data-id="Didesain sebagai arsip teknis kecil.">
+        Designed as a small technical archive.
       </p>
     </footer>
 
@@ -609,13 +715,20 @@ const skillGroups = [
       const languageButtons = document.querySelectorAll("[data-language]");
       const translatableElements = document.querySelectorAll("[data-en][data-id]");
       const roleText = document.querySelector("[data-role-text]");
+      const themeToggle = document.querySelector("[data-theme-toggle]");
       type PortfolioLanguage = "en" | "id";
+      type PortfolioTheme = "light" | "dark";
       const roleSets: Record<PortfolioLanguage, string[]> = {
-        en: ["Software Developer", "Data Scientist", "AI/ML Engineer", "Product-minded Builder"],
-        id: ["Software Developer", "Data Scientist", "AI/ML Engineer", "Pembuat Produk Digital"],
+        en: ["Software Developer", "Data Scientist", "AI/ML Engineer", "MLOps Learner", "Product-minded Builder"],
+        id: ["Software Developer", "Data Scientist", "AI/ML Engineer", "Pembelajar MLOps", "Product-minded Builder"],
       };
 
       let currentLanguage: PortfolioLanguage = localStorage.getItem("portfolio-language") === "id" ? "id" : "en";
+      let currentTheme: PortfolioTheme =
+        localStorage.getItem("portfolio-theme") === "dark" ||
+        (!localStorage.getItem("portfolio-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ? "dark"
+          : "light";
       let roleIndex = 0;
 
       function applyLanguage(language: PortfolioLanguage) {
@@ -632,11 +745,25 @@ const skillGroups = [
         if (roleText) roleText.textContent = roleSets[language][roleIndex];
       }
 
+      function applyTheme(theme: PortfolioTheme) {
+        currentTheme = theme;
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("portfolio-theme", theme);
+        if (themeToggle) {
+          themeToggle.setAttribute(
+            "aria-label",
+            theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+          );
+        }
+      }
+
       languageButtons.forEach((button) => {
         button.addEventListener("click", () =>
           applyLanguage(button.getAttribute("data-language") === "id" ? "id" : "en"),
         );
       });
+      themeToggle?.addEventListener("click", () => applyTheme(currentTheme === "dark" ? "light" : "dark"));
+      applyTheme(currentTheme);
       applyLanguage(currentLanguage);
 
       window.setInterval(() => {
